@@ -1,0 +1,7 @@
+.well
+  - @conversations.each do |conversation|
+    %ol.posts
+      %li
+        %p= conversation.subject
+        %p= conversation.created_at
+= link_to 'mes convertations', :conversations

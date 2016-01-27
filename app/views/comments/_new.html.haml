@@ -1,0 +1,7 @@
+= form_for(@comment) do |c|
+  = c.text_area  :content, :cols => 30, :rows => 1
+  %br
+  = c.hidden_field :user_id, value: current_user.id
+  //- binding.pry
+  = c.hidden_field :track_id, value: locals[:track][:id]
+  = c.submit "poster votre commentaire"

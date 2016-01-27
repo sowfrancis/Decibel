@@ -1,0 +1,3 @@
+%ul
+  - @tracks.each do |track|
+    %li= link_to grant.title, :action => 'show', :id => track.id 

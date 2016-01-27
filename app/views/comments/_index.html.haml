@@ -1,0 +1,6 @@
+- @comments.each do |comment|
+  = find_email(comment.user_id)
+  \:
+  = comment.content
+  = link_to "supprimer", delete_comment_path(comment), method: :delete
+  %hr/

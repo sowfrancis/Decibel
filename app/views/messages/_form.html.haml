@@ -1,0 +1,7 @@
+.container
+  %h3 Reply:
+  %br
+  = form_tag reply_conversation_path(conversation), method: :post do
+    .form-group
+      = text_area_tag 'body', nil, cols: 2, class: 'form-control', placeholder: 'Type your message here!', required: true
+      = submit_tag "Send Message", class: 'btn btn-primary'

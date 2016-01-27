@@ -1,0 +1,40 @@
+= render :partial => "tracks/search" 
+.row.col-md-12
+  - @tracks.each do |track|
+    .sound-content.gutter.col-md-2.col-sm-4.col-lg-3
+      = link_to track_path(track.id) do
+        .covermusic
+          = image_tag track.avatar.url, class: 'img-responsive'
+      %p
+      .name_user
+        = find_email(track.user_id)
+      / /* audio player */
+      .audio-player
+        .bbplayer
+          %span.bb-rewind
+          %span.bb-play
+          %span.bb-forward
+          %span.bb-trackTime
+          %span.bb-trackLength
+          %span.bb-trackTitle
+          %audio
+            %source{:src => "#{track.audio.url}"}
+            %source{:src => "#{track.audio.url}"}
+      / /* commentaire */
+      .comment_track
+        - if user_signed_in?
+          = render 'comments/new', locals: {track: track}
+        - else
+      / /* bouton pour supprimer */
+      .sound-footer
+      - if user_signed_in?
+        %p.like-delete
+          = track.score
+          = link_to "<i class='fa fa-heartbeat fa-lg'></i>".html_safe, like_track_path(track), method: :put
+          = link_to "<i class='fa fa-comment'></i>".html_safe, track_path(track.id)
+          = track.comments.size
+          -if current_user.id == track.user_id
+            = link_to "<i class='fa fa-trash-o fa-lg'></i>".html_safe, delete_track_path(track.id),method: :delete
+          - else
+      - else
+%script{:src => "https://raw.githubusercontent.com/73rhodes/bbplayer/master/js/bbplayer.js"}

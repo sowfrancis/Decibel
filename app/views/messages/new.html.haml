@@ -1,0 +1,20 @@
+.well
+  %p
+    %h3
+      Send a message to #{@user.email}
+    %p
+      = form_tag({controller: "messages", action: "create"}, method: :post) do
+        %p
+          = label_tag :subject
+          %br
+          = text_field_tag :subject
+        %p
+          = label :body, "Message text"
+          %br
+          = text_area_tag :body
+        %p
+          = hidden_field :user_id, value: @user.id
+          
+          = submit_tag 'Send message', class: "btn btn-primary"
+          
+            

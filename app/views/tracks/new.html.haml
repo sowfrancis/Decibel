@@ -1,0 +1,48 @@
+%h2 Upload On Decibel!
+%p
+.row
+  = form_for(@track) do |t|
+    .avatar_preview.col-md-6
+      .ava_prev{id: 'image-frame'}
+      /= image_tag @track.avatar.url, class: "image_file"
+    .upload_file.col-md-6
+      .avatar_file
+        %p
+          = t.label "cover"
+        %p
+          = t.file_field :avatar, id: 'avatar_file'
+      .audio_file
+        %p
+          = t.label "choose your music"
+        %p
+          = t.file_field :audio
+        %p.upload
+          %h4 Let's Go!!
+        = t.submit "upload"
+:javascript
+  $("#avatar_file").change(function () {
+        displayThumbnail(this);
+  });
+  function displayThumbnail(input) {
+        for( var i = 0;i<input.files.length;i++){
+            if (input.files && input.files[i]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    if ($('#avatar_file')) {
+                        var $newImageThumbnail = makeElement('img',{ class: "image-frame",src: e.target.result});
+                        $('#image-frame').append($newImageThumbnail);
+                    }
+                };
+                reader.readAsDataURL(input.files[i]);
+            }
+        }
+
+    }
+
+    function makeElement(element, options) {
+        var $elem = document.createElement(element);
+        $.each(options, function (key, value) {
+            $elem.setAttribute(key, value);
+        });
+        return $elem;
+    }

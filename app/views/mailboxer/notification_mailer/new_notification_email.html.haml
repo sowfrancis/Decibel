@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h1
+      You have a new notification: #{@notification.subject.html_safe? ? @notification.subject : strip_tags(@notification.subject)}
+    %p
+      You have received a new notification:
+    %blockquote
+      %p
+        = raw @notification.body
+    %p
+      Visit #{link_to root_url,root_url} and go to your notifications for more info.

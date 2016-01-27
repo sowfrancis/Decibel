@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h1
+      You have a new reply: #{@subject}
+    %p
+      You have received a new reply:
+    %blockquote
+      %p
+        = raw @message.body
+    %p
+      Visit **messages** and go to your inbox for more info.

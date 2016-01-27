@@ -1,0 +1,8 @@
+%h2 Notifications
+- @notifications.each do |notif|
+  %p.notifications
+    = notif.user.email
+    = notif.content
+    = link_to "supprimer", delete_notification_path(notif.id), method: :delete
+    %br
+    %hr

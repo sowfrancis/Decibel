@@ -1,0 +1,25 @@
+// Place all the styles related to the tracks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.row
+{ padding-top: 40px;
+  margin: auto;
+  margin-bottom: 40px;
+  
+  .sound-content
+  {
+    height: auto;
+    width: 320px;
+
+
+    .covermusic
+    {
+      .img-responsive
+      {
+        height: 150px;
+        margin: auto;
+      }
+    }
+  }
+}

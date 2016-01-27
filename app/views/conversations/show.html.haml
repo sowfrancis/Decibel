@@ -1,0 +1,25 @@
+.container
+  .well
+    %h1
+      = @conversation.subject
+    %h2
+      %span A conversation with
+      - @conversation.participants.each do |participant|
+        - if participant != current_user
+          = participant.name
+    %br
+    %ul
+      = content_tag_for(:li, @conversation.receipts_for(current_user)) do |receipt|
+        - message = receipt.message
+        %br
+        %b
+          = message.sender.name
+        %p
+          = simple_format h message.body
+        %span.timestamp Sent
+        %span.timestamp
+          = time_ago_in_words(message.updated_at)
+        %span.timestamp ago.
+        %br/
+      %br/
+    = render 'messages/form', conversation: @conversation

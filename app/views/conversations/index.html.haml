@@ -1,0 +1,49 @@
+.well
+  .title
+    %h1 Conversations
+  Click on the subject to open the conversation. You can click on the
+  %i.fa.fa-trash.fa-2x
+  icon to send a conversation to the trash folder. You can begin a new conversation by clicking on the "Send Message" button on a person's profile page.
+  %p
+    %h2
+      %a{:href => conversations_path}
+        = @conversationscount.count
+        Inbox
+      |
+      %a{:href => trashbin_conversations_path}
+        = @trash.count
+        Trash
+  %br
+    %h3 Inbox
+    <br \>
+    %table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "background-color:#9FC; border-radius:10px;", :width => "900"}
+      %tr
+        %th.emailTH{:scope => "col"} SENDER
+        %th.emailTH{:scope => "col"} SUBJECT
+        %th.emailTH{:scope => "col"} DATE
+        %th.emailTH{:scope => "col"}
+      - if @conversations == nil || @conversations.empty?
+        %i Your Inbox folder is currently empty
+      - @conversations.each do |conversation|
+        %tr
+          %td.emailsenderTD
+            - conversation.participants.each do |participant|
+              - if participant != current_user
+                - if conversation.is_read?(current_user)
+                  = participant.email
+                - else
+                  %b
+                    = participant.email
+          %td.emailsubjectTD
+            - if conversation.is_read?(current_user)
+              = link_to conversation.subject, conversation_path(conversation)
+            - else
+              %b= link_to conversation.subject, conversation_path(conversation)
+          %td.emailTD
+            - if conversation.is_read?(current_user)
+              = conversation.updated_at.strftime("%a, %m/%e/%Y %I:%M %p")
+            - else
+              %b
+                = conversation.updated_at.strftime("%a, %m/%e/%Y %I:%M %p")
+          %td.emailtrashTD
+            = link_to '<i class="fa fa-trash fa-2x"></i>'.html_safe, {:controller => "conversations", :action => "trash", :id => conversation.id}, :title=> "Move to Trash", :method=>'post'

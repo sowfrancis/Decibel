@@ -1,0 +1,43 @@
+.container
+  .well
+    .title
+      %h1 Conversations
+      Click on the subject to open the conversation. You can click on the
+    %i.fa.fa-inbox.fa-2x
+      icon to send a conversation back to your Inbox folder. You can delete all messages in your Trash folder by clicking on the red "Empty Trash" button (this button is only available if there are conversations in your Trash folder).
+    %p
+      %h2
+        %a{:href => conversations_path}
+          = @conversationscount.count
+          Inbox
+        |
+        %a{:href => trashbin_conversations_path}
+          = @trash.count
+          Trash
+    %br
+      %h3 Trash
+      \&nbsp; &nbsp;
+      - if @trashcount.count > 0
+        = button_to 'Empty Trash', 'empty_trash', :confirm => 'Empty trash?', :class => 'btn btn-primary btn-danger'
+      %br
+      - if @trash == nil || @trash.empty?
+        %i Your Trash folder is currently empty
+      %table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "background-color:#9FC; border-radius:10px;", :width => "900"}
+        %tr
+          %th.emailTH{:scope => "col"} SENDER
+          %th.emailTH{:scope => "col"} SUBJECT
+          %th.emailTH{:scope => "col"} DATE
+          %th.emailTH{:scope => "col"}
+        - @trash.each do |conversation|
+          %tr
+            %td.emailTD
+              - conversation.participants.each do |participant|
+                - if participant != current_user
+                  %b
+                    = participant.email
+            %td.emailsubjectTD
+              = link_to conversation.subject, conversation_path(conversation)
+            %td.emailTD
+              = conversation.updated_at.strftime("%a, %m/%e/%Y %I:%M %p")
+            %td.emailtrashTD
+              = link_to '<i class="fa fa-trash fa-2x"></i>'.html_safe, {controller: "conversations", action: "untrash", :id => conversation.id}, :title => "Move to Inbox", :method=>'post'
