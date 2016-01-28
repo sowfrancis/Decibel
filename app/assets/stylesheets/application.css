@@ -20,12 +20,19 @@
 
 
 html, body {
-  height: 100%; 
   background-color: #FFE4B5 !important;
   background-image: url("maze-white.png");
   color: black;
+  height: 100%;
 }
 
+
+.footer{
+  position: absolute;
+  margin: 700px 0px 0px 254px;
+  width: 770px;
+  clear:both; /*Place le pied en element flottant*/
+} 
 
 
 .container{
@@ -35,6 +42,7 @@ html, body {
   min-height: 100%;
   border-left: 2px solid white;
   border-right: 2px solid white;
+  height: 100%;
 }
 
 .navbar.navbar-inverse.navbar-static-top{
