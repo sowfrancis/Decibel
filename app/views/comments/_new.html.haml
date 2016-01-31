@@ -1,5 +1,5 @@
 = form_for(@comment) do |c|
-  = c.text_area  :content, :cols => 30, :rows => 1
+  = c.text_area  :content, :cols => 30, :rows => 1, id: 'comment'
   %br
   = c.hidden_field :user_id, value: current_user.id
   //- binding.pry

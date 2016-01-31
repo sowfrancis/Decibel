@@ -4,6 +4,8 @@ class Track < ActiveRecord::Base
   belongs_to :user
   has_many :votes
 
+  attr_accessor :audio_file_name
+
   has_attached_file :avatar, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :avatar, :content_type => [ 'image/png','image/jpeg','image/jpeg']
 
