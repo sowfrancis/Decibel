@@ -116,7 +116,6 @@ margin: 15px;
 
 .covermusic{
   text-align: right;
-
 }
 
 .sound-content.gutter {
@@ -149,8 +148,8 @@ margin: 15px;
   margin: auto;
   text-align:right;
   padding: 50px;
-  height: 350px;
-  width: 45%;
+  height: 550px;
+  width: 70%;
   background-color: white;
   border-radius: 10px;
   margin-top: 50px;
@@ -160,11 +159,12 @@ margin: 15px;
 .image-frame{
     background:#ccc;
     border:1px solid #000;
-    display:inline-block;
+    display:block;
     margin-right:1em;
-    width:200px;
-    height:100px;
+    max-width:300px;
+    max-height:300px;
     text-align:center;
+    margin-bottom: 10px;
   }
 
 
@@ -189,6 +189,10 @@ margin: 15px;
 
 #track_audio{
   
+}
+
+.form{
+  word-spacing: 3px;
 }
 
 /* page show */

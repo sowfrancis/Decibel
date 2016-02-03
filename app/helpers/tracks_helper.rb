@@ -1,7 +1,7 @@
 module TracksHelper
   
-  def find_email(user_id)
-    User.find(user_id).email
+  def find_name(user_id)
+    User.find(user_id).name
   end
 
  

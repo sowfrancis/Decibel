@@ -18,8 +18,6 @@
 //= require react_ujs
 //= require components
 //= require_tree 
-//= require 'jquery.jplayer'
 //= require bootstrap-sprockets
-//= require jquery-fileupload
 
 

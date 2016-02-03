@@ -1,8 +1,10 @@
 Rails.application.routes.draw do 
   get 'notifications/index'
 
+  
+
   devise_for :users
-  root  'tracks#index'
+  root 'tracks#index'
 
   resources :users
   
@@ -13,7 +15,12 @@ Rails.application.routes.draw do
     end  
   end
 
+  authenticated :user do
+    root  "tracks#profile_track", as: :root_user, via: :get
+  end
+
   post 'tracks/:id/' => 'tracks#destroy', method: :delete, as: 'delete_track'
+  
   get 'tracks/:id/profile_track' => 'tracks#profile_track' , as: 'profile_track'
 
   resources :comments 
@@ -24,7 +31,7 @@ Rails.application.routes.draw do
 
   resources :mailboxer
 
-  
+  resources :tags
 
   get "/messages" => redirect("/conversations")
 

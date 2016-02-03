@@ -4,9 +4,7 @@ gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'devise'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'bootstrap-sass', '~> 3.3.6'
-gem 'jplayer-rails'
 gem 'react-rails'
-gem 'soundmanager2-rails'
 gem 'thumbs_up'
 gem 'acts_as_votable'
 gem 'mailboxer'
@@ -14,7 +12,6 @@ gem 'pg'
 gem 'pry-rails'
 gem "font-awesome-rails"
 gem "haml-rails", "~> 0.9"
-gem "jquery-fileupload-rails"
 gem 'factory_girl_rails'
 gem "factory_girl", "~> 4.0"
 gem 'rspec-rails', '~> 3.0'

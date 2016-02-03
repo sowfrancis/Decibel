@@ -14,6 +14,7 @@ class TracksController < ApplicationController
 
   def new
     @track = Track.new
+    @tag = Tag.new
   end
 
   def profile_track
@@ -23,6 +24,7 @@ class TracksController < ApplicationController
 
   def create
     @track = Track.new(track_params)
+    @tag = @track.tags.build
     @track.user = current_user
     if @track.save
       redirect_to tracks_path, notice: "thanks #{@track.user.email} for your upload!"
@@ -32,12 +34,12 @@ class TracksController < ApplicationController
   end
 
   def search
-
-
   end
+
 
   def destroy
     @track = Track.find(params[:id])
+    @tag = Tag.find(params[:id])
     @track.destroy
     redirect_to tracks_path
   end
@@ -57,6 +59,6 @@ class TracksController < ApplicationController
   private
 
   def track_params
-    params.require(:track).permit(:avatar, :audio, :user_id)
+    params.require(:track).permit(:avatar, :audio, :user_id, tags_attributes: [:name])
   end
 end

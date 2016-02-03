@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
 
     #Returning any kind of identification you want for the model
   def name
-    return "You should add method :name in your Messageable model"
+    
   end
 
   #Returning the email address of the model if an email should be sent for this object (Message or Notification).

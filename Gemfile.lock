@@ -148,11 +148,6 @@ GEM
     jbuilder (2.4.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
-    jplayer-rails (2.5.0)
-    jquery-fileupload-rails (0.4.6)
-      actionpack (>= 3.1)
-      railties (>= 3.1)
-      sass (>= 3.2)
     jquery-rails (4.1.0)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
@@ -271,7 +266,6 @@ GEM
       websocket (~> 1.0)
     sexp_processor (4.6.0)
     slop (3.6.0)
-    soundmanager2-rails (2.97.20140901)
     spring (1.6.2)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
@@ -325,8 +319,6 @@ DEPENDENCIES
   font-awesome-rails
   haml-rails (~> 0.9)
   jbuilder (~> 2.0)
-  jplayer-rails
-  jquery-fileupload-rails
   jquery-rails
   mailboxer
   paperclip!
@@ -340,7 +332,6 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   selenium-webdriver
-  soundmanager2-rails
   spring
   thumbs_up
   turbolinks

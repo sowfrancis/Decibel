@@ -1,10 +1,9 @@
 %h2 Upload On Decibel!
 %p
 .row
-  = form_for(@track) do |t|
+  = form_for @track do |t|
     .avatar_preview.col-md-6
-      .ava_prev{id: 'image-frame'}
-      /= image_tag @track.avatar.url, class: "image_file"
+      .ava_prev{id: 'image-frame', width: "300", height: "300"}
     .upload_file.col-md-6
       .avatar_file
         %p
@@ -12,6 +11,12 @@
         %p
           = t.file_field :avatar, id: 'avatar_file'
       .audio_file
+        %p
+          = t.label "title"
+        %p
+          = t.text_field :audio_file_name, autofocus: true, placeholder: "#{@track.audio_file_name}"
+        %p
+          = render 'tags/form'
         %p
           = t.label "choose your music"
         %p

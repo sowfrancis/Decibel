@@ -10,6 +10,8 @@ require 'factory_girl_rails'
 require "paperclip/matchers"
 require Rails.root.join('spec/support/features')
 require 'capybara/poltergeist'
+require 'database_cleaner'
+
 
 # Add additional requires below this line. Rails is not loaded until this point!
 Capybara.javascript_driver = :poltergeist

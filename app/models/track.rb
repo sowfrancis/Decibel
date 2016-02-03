@@ -3,11 +3,13 @@ class Track < ActiveRecord::Base
   has_many :comments
   belongs_to :user
   has_many :votes
+  has_many :tags, through: :taggings, :dependent => :destroy
+  has_many :taggings
 
-  attr_accessor :audio_file_name
+  accepts_nested_attributes_for :tags
 
   has_attached_file :avatar, default_url: "/images/:style/missing.png"
-  validates_attachment_content_type :avatar, :content_type => [ 'image/png','image/jpeg','image/jpeg']
+  validates_attachment_content_type :avatar, :content_type => [ 'image/png','image/jpeg']
 
   has_attached_file :audio
   validates_attachment_presence :audio
@@ -24,5 +26,6 @@ class Track < ActiveRecord::Base
   end
 
   acts_as_messageable
+
 
 end
