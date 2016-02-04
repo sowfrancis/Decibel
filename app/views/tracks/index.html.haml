@@ -7,7 +7,7 @@
           = image_tag track.avatar.url, class: 'img-responsive'
       %p
       .name_user
-        = find_name(track.user_id)
+        = track.user.name
       / /* audio player */
       .audio-player
         .bbplayer

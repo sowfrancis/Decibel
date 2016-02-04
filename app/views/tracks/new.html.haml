@@ -12,10 +12,6 @@
           = t.file_field :avatar, id: 'avatar_file'
       .audio_file
         %p
-          = t.label "title"
-        %p
-          = t.text_field :audio_file_name, autofocus: true, placeholder: "#{@track.audio_file_name}"
-        %p
           = render 'tags/form'
         %p
           = t.label "choose your music"

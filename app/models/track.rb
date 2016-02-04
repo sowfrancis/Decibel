@@ -6,7 +6,6 @@ class Track < ActiveRecord::Base
   has_many :tags, through: :taggings, :dependent => :destroy
   has_many :taggings
 
-  accepts_nested_attributes_for :tags
 
   has_attached_file :avatar, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :avatar, :content_type => [ 'image/png','image/jpeg']
@@ -21,8 +20,9 @@ class Track < ActiveRecord::Base
     self.get_upvotes.size - self.get_downvotes.size
   end
 
-  def self.search(search)
-    where("audio_file_name LIKE ?", "%#{search}%")
+
+  def self.tagged_with(name)
+    Tag.find_by_name!(name).tracks  
   end
 
   acts_as_messageable

@@ -34,7 +34,7 @@ html, body {
 
 .container{
   width: 90%;
-  background-image: url("45-degree-fabric-light.png");
+  background: white;
   border: 2px solid transparent;
   min-height: 100%;
   border-left: 2px solid white;
@@ -137,7 +137,8 @@ margin: 15px;
   padding-top: 40px;
   text-align: center;
   margin: auto;
-  background-color: white;
+  background-image: url("maze-white.png");
+  background: #FFE4B5;
   
  }  
 
@@ -152,8 +153,9 @@ margin: 15px;
   width: 70%;
   background-color: white;
   border-radius: 10px;
-  margin-top: 50px;
+  margin-top: 20px;
   box-shadow: 5px 5px;
+  background: #FFE4B5
   }
 
 .image-frame{

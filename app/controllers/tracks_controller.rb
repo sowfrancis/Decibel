@@ -3,6 +3,7 @@ class TracksController < ApplicationController
   SEND_FILE_METHOD = :default
 
   def index
+    @tags = Tag.includes(:track)
     @tracks = Track.includes(:comments)
     @comment = Comment.new
     if(params[:search])
@@ -23,8 +24,18 @@ class TracksController < ApplicationController
   end
 
   def create
+    array_tags = params[:tag]['name'].split
+    tags = []
+    array_tags.each do |tag|
+      tagg = Tag.where(name: tag)
+      if tagg.count == 0
+        tags << Tag.create(name: params[:tag]['name'])
+      else
+        tags << tagg
+      end
+    end
     @track = Track.new(track_params)
-    @tag = @track.tags.build
+    @track.tags = tags
     @track.user = current_user
     if @track.save
       redirect_to tracks_path, notice: "thanks #{@track.user.email} for your upload!"
@@ -59,6 +70,6 @@ class TracksController < ApplicationController
   private
 
   def track_params
-    params.require(:track).permit(:avatar, :audio, :user_id, tags_attributes: [:name])
+    params.require(:track).permit(:avatar, :audio, :user_id)
   end
 end
