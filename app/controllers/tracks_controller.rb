@@ -3,7 +3,6 @@ class TracksController < ApplicationController
   SEND_FILE_METHOD = :default
 
   def index
-    @tags = Tag.includes(:track)
     @tracks = Track.includes(:comments)
     @comment = Comment.new
     if(params[:search])
@@ -27,11 +26,11 @@ class TracksController < ApplicationController
     array_tags = params[:tag]['name'].split
     tags = []
     array_tags.each do |tag|
-      tagg = Tag.where(name: tag)
-      if tagg.count == 0
+      t = Tag.where(name: tag)
+      if t.count == 0
         tags << Tag.create(name: params[:tag]['name'])
       else
-        tags << tagg
+        tags << t
       end
     end
     @track = Track.new(track_params)
@@ -50,7 +49,6 @@ class TracksController < ApplicationController
 
   def destroy
     @track = Track.find(params[:id])
-    @tag = Tag.find(params[:id])
     @track.destroy
     redirect_to tracks_path
   end

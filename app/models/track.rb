@@ -20,10 +20,10 @@ class Track < ActiveRecord::Base
     self.get_upvotes.size - self.get_downvotes.size
   end
 
-
-  def self.tagged_with(name)
-    Tag.find_by_name!(name).tracks  
+  def self.search(search)
+    where("audio_file_name LIKE ?", "%#{search}%")
   end
+
 
   acts_as_messageable
 

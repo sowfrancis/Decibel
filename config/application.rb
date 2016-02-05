@@ -8,9 +8,6 @@ Bundler.require(*Rails.groups)
 
 module Decibel
   class Application < Rails::Application
-    config.assets.precompile += %w(soundmanager2.swf soundmanager2_flash9.swf)
-    config.assets.precompile += %w(jquery.jplayer.min.js)
-    config.assets.paths << Rails.root.join("app", "assets", "swf")
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
