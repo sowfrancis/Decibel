@@ -1,0 +1,3 @@
+%ul
+  - @tags.each do |tag|
+    %li= link_to grant.title, :action => 'show', :id => tag.id 

@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :tagging do
     track nil
-tag nil
+    tag nil
   end
 
 end
