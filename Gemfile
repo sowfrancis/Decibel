@@ -16,6 +16,7 @@ gem 'factory_girl_rails'
 gem "factory_girl", "~> 4.0"
 gem 'rspec-rails', '~> 3.0'
 gem 'capybara'
+gem 'rails_admin'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record

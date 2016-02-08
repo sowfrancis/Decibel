@@ -20,9 +20,8 @@
 
 
 html, body {
-  background-color: #FFE4B5 !important;
-  background-image: url("maze-white.png");
-  color: black;
+    color: black;
+    background-image: url("maze-white.png");
 }
 
 
@@ -39,6 +38,9 @@ html, body {
   min-height: 100%;
   border-left: 2px solid white;
   border-right: 2px solid white;
+  background-color: #C0C0C0 ;
+  background-image: url("maze-white.png");
+
 }
 
 .navbar.navbar-inverse.navbar-static-top{
@@ -47,8 +49,7 @@ html, body {
 }
 
 .navbar-collapse.collapse.navbar-responsive-collapse{
-  background-color: #FFE4B5;
-  background-image: url("maze-white.png");
+  
 
 }
 
@@ -120,7 +121,7 @@ margin: 15px;
 
 .sound-content.gutter {
   margin-right: 0px;
-  margin-left: 40px;
+  margin-left: 10px;
   border-radius: 10px;
   margin-bottom: 20px;
 
@@ -137,10 +138,67 @@ margin: 15px;
   padding-top: 40px;
   text-align: center;
   margin: auto;
+  background-color: white;
   background-image: url("maze-white.png");
-  background: #FFE4B5;
-  
+  width: 24%; 
  }  
+
+/* dropdown notif */
+
+.glyphicon-bell {
+   
+    font-size:1.5rem;
+  }
+
+.notifications {
+   min-width:420px; 
+  }
+  
+  .notifications-wrapper {
+     overflow:auto;
+      max-height:250px;
+    }
+    
+ .menu-title {
+     color:#ff7788;
+     font-size:1.5rem;
+      display:inline-block;
+      }
+ 
+.glyphicon-circle-arrow-right {
+      margin-left:10px;     
+   }
+  
+   
+ .notification-heading, .notification-footer  {
+  padding:2px 10px;
+       }
+      
+        
+.dropdown-menu.divider {
+  margin:5px 0;          
+  }
+
+.item-title {
+  
+ font-size:1.3rem;
+ color:#000;
+    
+}
+
+.notifications a.content {
+ text-decoration:none;
+ background:#ccc;
+
+ }
+    
+.notification-item {
+ padding:10px;
+ margin:5px;
+ background:#ccc;
+ border-radius:4px;
+ }
+
 
 
 /* track_new page */
@@ -153,9 +211,9 @@ margin: 15px;
   width: 70%;
   background-color: white;
   border-radius: 10px;
-  margin-top: 20px;
   box-shadow: 5px 5px;
-  background: #FFE4B5
+  background-image: url("maze-white.png");
+  word-wrap: break-word;
   }
 
 .image-frame{
@@ -278,7 +336,6 @@ h4{
 
 h2{
   text-align: center;
-  margin-top: 40px;
 }
 
 .mailbox{
@@ -322,7 +379,7 @@ Optional styling for bbplayer elements.
   display: inline-block;
   padding: 5px;
   box-shadow: 0 0 5px rgba(100,100,100,0.2);
-  width: 300px;
+  width: 239px;
 }
 
 .bb-play {

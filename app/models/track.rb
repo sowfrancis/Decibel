@@ -21,7 +21,9 @@ class Track < ActiveRecord::Base
   end
 
   def self.search(search)
-    where("audio_file_name LIKE ?", "%#{search}%")
+    binding.pry
+    search = self.joins(:tags)
+    search.where({tags: {name: :tag}})
   end
 
 

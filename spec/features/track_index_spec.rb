@@ -13,7 +13,7 @@ RSpec.feature "track", type: :feature do
       expect(page).to have_css ".img-responsive"
     end
 
-    scenario 'i can see listen my track' do
+    scenario 'i can listen my track' do
       expect(Track.count).to eq 1
     end
 

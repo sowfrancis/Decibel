@@ -41,10 +41,12 @@
             %li= link_to "Déconnexion", destroy_user_session_path, method: :delete
             %li= link_to "Upload", new_track_path
             %li= link_to "Messages", conversations_path
-            %li= link_to "Notifications #{notif_count(current_user.id)}'", notifications_path(current_user.id)
             %li= link_to "My Tracks", profile_track_path(current_user.id)
+            %li= link_to "notification", notifications_path(current_user.id) 
           - else
             %li= link_to "Connexion", new_user_session_path
+    - if user_signed_in?
+    -else
       .header
   .container
     .alert.alert-warning.collapse.alert-dismissible.fade.in{:role => "alert", id: "flash"}

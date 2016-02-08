@@ -3,7 +3,7 @@ class TracksController < ApplicationController
   SEND_FILE_METHOD = :default
 
   def index
-    @tracks = Track.includes(:comments)
+    @tracks = Track.includes(:comments, :tags)
     @comment = Comment.new
     if(params[:search])
       @tracks = Track.search(params[:search]).order('created_at DESC')

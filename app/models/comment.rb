@@ -8,7 +8,7 @@ class Comment < ActiveRecord::Base
   def send_notification
     Notification.create(user_id: track.user.id,
                        comment_id: track.comments.last,
-                       content: "Vous avez recu un commentaire!"
+                       content: "Vous avez recu un commentaire de #{user.name}!"
                        )
 
   end
