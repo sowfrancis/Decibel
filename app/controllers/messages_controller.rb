@@ -14,7 +14,6 @@ class MessagesController < ApplicationController
   end
  
   def create
-    binding.pry
     @recipient = User.find_by(params[:id])
     current_user.send_message(@recipient, params[:body], params[:subject])
     flash[:notice] = "Message has been sent"

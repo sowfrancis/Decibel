@@ -3,10 +3,10 @@
     %h1
       = @conversation.subject
     %h2
-      %span A conversation with
+      %span A conversation with 
       - @conversation.participants.each do |participant|
         - if participant != current_user
-          = participant.name
+          = participant.email
     %br
     %ul
       = content_tag_for(:li, @conversation.receipts_for(current_user)) do |receipt|

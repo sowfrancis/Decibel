@@ -9,7 +9,6 @@ RSpec.feature "comment", type: :feature do
 	
 	context "post a comment" do
 		scenario "i can post a comment" do
-			binding.pry
 			visit "/tracks/"
 			fill_in 'comment[content]', with: 'yooo'
 			click_on 'poster votre commentaire'
