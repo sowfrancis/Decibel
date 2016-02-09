@@ -54,7 +54,7 @@ html, body {
 }
 
 .header{
-  background-image: url("vinyl.png");
+  background-image: url("VINYL.jpg");
   background-size: cover;
   height: 300px;
 }
@@ -86,7 +86,8 @@ li.current_user{
   width: 30%;
   border-radius: 10px;
   box-shadow: 10px 10px;
-  margin-top: 70px;
+  margin-top: 45px;
+  height: 400px;
 }
 
 /*audio tracks*/
@@ -264,6 +265,11 @@ margin: 15px;
   border-left: 1px white groove;
 }
 
+.img-show{
+  width: 100%;
+  height: 300px;
+}
+
 .contenttrack-show{
   padding: 30px 30px auto;
   margin-right: 15px; 
@@ -387,7 +393,6 @@ Optional styling for bbplayer elements.
   vertical-align: middle;
   height: 32px;
   width:  32px;
-  border: 6px solid #CFCFCF;
   border-radius: 50%; 
   background: transparent; 
   background-image: url('play.png');

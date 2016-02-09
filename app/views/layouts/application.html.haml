@@ -42,7 +42,40 @@
             %li= link_to "Upload", new_track_path
             %li= link_to "Messages", conversations_path
             %li= link_to "My Tracks", profile_track_path(current_user.id)
-            %li= link_to "notification", notifications_path(current_user.id) 
+            %li.dropdown
+              %a#dLabel{"data-target" => "#", "data-toggle" => "dropdown", :href => "/page.html", :role => "button"}
+                Notif!
+                %i{class: ("glyphicon.glyphicon-bell" if @notifications != 0)}
+              %ul.dropdown-menu.notifications{"aria-labelledby" => "dLabel", :role => "menu"}
+                .notification-heading
+                  %h4.menu-title Notifications
+                  %h4.menu-title.pull-right
+                    View all
+                    %i.glyphicon.glyphicon-circle-arrow-right
+                %li.divider
+                .notifications-wrapper
+                - @notifications.each do |notif|
+                  %a.content{:href => track_path(current_user.tracks.last.id)}
+                    .notification-item
+                      %h4.item-title 
+                        = current_user.email
+                      %p.item-info 
+                        = notif.content
+                        = link_to "supprimer", delete_notification_path(notif.id), method: :delete
+                %li.divider
+                .notification-footer
+                  %h4.menu-title
+                    View all
+                    %i.glyphicon.glyphicon-circle-arrow-right
+            %li.dropdown
+              %a.dropdown-toggle{"data-target" => "#", "data-toggle" => "dropdown", :href => "page.html"}
+                = current_user.email
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a= link_to "edit profile", edit_user_registration_path(current_user.id)
+                %li
+                  %a{:href => "#"} Another action
           - else
             %li= link_to "Connexion", new_user_session_path
     - if user_signed_in?

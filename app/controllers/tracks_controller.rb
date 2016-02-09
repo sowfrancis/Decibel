@@ -3,6 +3,7 @@ class TracksController < ApplicationController
   SEND_FILE_METHOD = :default
 
   def index
+    @notifications = Notification.all
     @tracks = Track.includes(:comments, :tags)
     @comment = Comment.new
     if(params[:search])

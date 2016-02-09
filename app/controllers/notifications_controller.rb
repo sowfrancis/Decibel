@@ -15,7 +15,7 @@ class NotificationsController < ApplicationController
   def destroy
     @notification = Notification.find(params[:id])
     @notification.destroy
-    redirect_to notifications_path
+    redirect_to tracks_path(@track)
   end
 
   def create
