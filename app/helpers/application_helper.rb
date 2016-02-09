@@ -5,6 +5,8 @@ module ApplicationHelper
     @notifications = Notification.where(user_id: @user).count(check: false)
  end
 
- 
+  def find_email(user_id)
+    User.find(user_id).email
+  end
   
 end
