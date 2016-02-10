@@ -45,7 +45,9 @@
             %li.dropdown
               %a#dLabel{"data-target" => "#", "data-toggle" => "dropdown", :href => "/page.html", :role => "button"}
                 Notif!
-                %i{class: ("glyphicon.glyphicon-bell" if @notifications != 0)}
+                - if @notifications.count == 1 
+                  %i.glyphicon.glyphicon-bell
+                -else
               %ul.dropdown-menu.notifications{"aria-labelledby" => "dLabel", :role => "menu"}
                 .notification-heading
                   %h4.menu-title Notifications

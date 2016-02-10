@@ -1,4 +1,3 @@
 = form_for @tag do |t|
-  = t.label 'tag'
-  = t.text_field :name
+  = t.select_tag "tag", options_from_collection_for_select(@tag, "id", "name")
   = t.submit 'tagger' 

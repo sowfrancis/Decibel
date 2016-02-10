@@ -6,6 +6,8 @@ class Track < ActiveRecord::Base
   has_many :tags, through: :taggings, :dependent => :destroy
   has_many :taggings
 
+  before_save :create_tag
+
 
   has_attached_file :avatar, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :avatar, :content_type => [ 'image/png','image/jpeg']
@@ -16,18 +18,27 @@ class Track < ActiveRecord::Base
 
   acts_as_votable 
 
+  acts_as_messageable
+
   def score
     self.get_upvotes.size - self.get_downvotes.size
   end
 
   def self.search(search)
-    binding.pry
     search = self.joins(:tags)
-    search.where({tags: {name: :tag}})
+    search.where('tags.name ILIKE ?', "%#{search}%")
+    where('audio_file_name ILIKE ?',"%#{search}%")
   end
 
 
-  acts_as_messageable
+
+  def create_tag
+    tags = Tag.all
+    tags = tags.split(" ").map do |tag|
+      Tag.find_or_create_by(name: tag)
+    end
+    self.tags << tags
+  end
 
 
 end
