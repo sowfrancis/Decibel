@@ -9,10 +9,14 @@ class User < ActiveRecord::Base
   has_many :votes
   has_many :notifications, :foreign_key => "user_id"
 
+
+
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :avatar, :content_type => /.*/
 
   acts_as_messageable
+
+
 
     #Returning any kind of identification you want for the model
   def name
@@ -28,4 +32,6 @@ class User < ActiveRecord::Base
     #if false
     #return nil
   end
+
+ 
 end

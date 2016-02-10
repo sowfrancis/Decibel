@@ -7,8 +7,10 @@ class ApplicationController < ActionController::Base
   before_filter :tracking
   
   def notifications
-    @notifications = current_user.notifications
-    @notifications.update_all check: true
+    @notifications = Notification.all
+    @notifications.each do |notification|
+      notification.update_attribute(:check, true)
+    end
   end
 
   def comments

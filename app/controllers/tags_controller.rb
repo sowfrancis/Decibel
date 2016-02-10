@@ -5,6 +5,7 @@ class TagsController < ApplicationController
   end
 
   def new
+    @tags = Tag.all
     @tag = Tag.new
   end
 

@@ -3,7 +3,6 @@ class TracksController < ApplicationController
   SEND_FILE_METHOD = :default
 
   def index
-    @notifications = Notification.all
     @tracks = Track.includes(:comments, :tags)
     @comment = Comment.new
     if(params[:search])
@@ -24,18 +23,7 @@ class TracksController < ApplicationController
   end
 
   def create
-    array_tags = params[:tag]['name'].split
-    tags = []
-    array_tags.each do |tag|
-      t = Tag.where(name: tag)
-      if t.count == 0
-        tags << Tag.create(name: params[:tag]['name'])
-      else
-        tags << t
-      end
-    end
     @track = Track.new(track_params)
-    @track.tags = tags
     @track.user = current_user
     if @track.save
       redirect_to tracks_path, notice: "thanks #{@track.user.email} for your upload!"
