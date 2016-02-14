@@ -18,7 +18,8 @@ class ApplicationController < ActionController::Base
   end
 
   def tracking
-    @tracks = Track.all
+    @tracks = Track.all 
+    @track = @tracks.each { |track| track }
   end
 
 

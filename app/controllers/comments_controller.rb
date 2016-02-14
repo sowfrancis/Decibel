@@ -12,7 +12,6 @@ class CommentsController < ApplicationController
   def create
      @comment = Comment.new(params_comment)
     if @comment.save
-      Notification.create(content: "#{current_user.email} Vous avez recu un commentaire!", user_id: @user, comment_id: @comment.track_id ,check: false)
       redirect_to track_path(@comment.track.id), notice: "thanks #{@comment.user.email} for your posting"
     else
       redirect_to tracks_path, notice: "erreur"

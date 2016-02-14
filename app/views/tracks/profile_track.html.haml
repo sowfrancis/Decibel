@@ -32,11 +32,6 @@
                 %audio
                   %source{:src => "#{track.audio.url}"}
                   %source{:src => "#{track.audio.url}"}
-            / /* commentaire */
-            .comment_track
-              - if user_signed_in?
-                = render 'comments/new', locals: {track: track}
-              - else
             / /* bouton pour supprimer */
             .sound-footer
               %p.like-delete

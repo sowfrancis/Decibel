@@ -1,12 +1,6 @@
 .form
   = form_for @tag do |t|
     %p
-      = t.label :tag, autofocus: true, placeholder: "#"
+      = t.label :tag
     %p
-      = t.text_field :name
-:javascript
-  $('#id_of_textarea').keypress(function(e){
-      if(e.which == 13){
-           $(this).closest('form').submit();
-       }
-    });
+      = t.text_field_tag :name

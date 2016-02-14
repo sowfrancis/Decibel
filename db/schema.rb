@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160202174541) do
+ActiveRecord::Schema.define(version: 20160212005002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,10 +98,12 @@ ActiveRecord::Schema.define(version: 20160202174541) do
     t.boolean  "check",      default: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "track_id"
   end
 
   add_index "notifications", ["comment_id"], name: "index_notifications_on_comment_id", using: :btree
   add_index "notifications", ["message_id"], name: "index_notifications_on_message_id", using: :btree
+  add_index "notifications", ["track_id"], name: "index_notifications_on_track_id", using: :btree
   add_index "notifications", ["user_id"], name: "index_notifications_on_user_id", using: :btree
 
   create_table "taggings", force: :cascade do |t|
@@ -179,6 +181,7 @@ ActiveRecord::Schema.define(version: 20160202174541) do
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
+  add_foreign_key "notifications", "tracks"
   add_foreign_key "taggings", "tags"
   add_foreign_key "taggings", "tracks"
 end
