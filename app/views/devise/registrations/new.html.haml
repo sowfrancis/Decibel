@@ -6,11 +6,11 @@
       .field
         = f.label "username"
         %br
-        = f.text_field :name
+        = f.text_field :name, size: "50x50"
         %br
         = f.label :email
         %br/
-        = f.email_field :email, autofocus: true
+        = f.email_field :email, autofocus: true, size: "50x50"
       .field
         = f.label :password
         - if @minimum_password_length
@@ -22,6 +22,7 @@
         = f.label :password_confirmation
         %br/
         = f.password_field :password_confirmation, autocomplete: "off"
+        %br
       .actions
-        = f.submit "Sign up"
+        = f.submit "Sign up", class: "btn btn-primary"
     = render "devise/shared/links"

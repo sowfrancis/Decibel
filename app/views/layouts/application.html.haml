@@ -43,9 +43,9 @@
             %li= link_to "Messages", conversations_path
             %li= link_to "My Tracks", profile_track_path(current_user.id)
             %li.dropdown
-              %a#dLabel{"data-target" => "#", "data-toggle" => "dropdown", :href => "/page.html", :role => "button"}
+              %a#dLabel{"data-target" => "#", "data-toggle" => "dropdown", :href => "#", :role => "button"}
                 Notif!
-                - if @notifications.count == 1 
+                - if @notifications.count > 0 
                   %i.glyphicon.glyphicon-bell
                 -else
               %ul.dropdown-menu.notifications{"aria-labelledby" => "dLabel", :role => "menu"}
@@ -56,14 +56,14 @@
                     %i.glyphicon.glyphicon-circle-arrow-right
                 %li.divider
                 .notifications-wrapper
-                - @notifications.each do |notif|
-                  %a.content{:href => track_path(current_user.tracks.last.id)}
-                    .notification-item
-                      %h4.item-title 
-                        = current_user.email
-                      %p.item-info 
-                        = notif.content
-                        = link_to "supprimer", delete_notification_path(notif.id), method: :delete
+                  - @notifications.each_with_index do |notif|
+                    %a.content{:href => track_path(notif.track_id)}
+                      .notification-item
+                        %h4.item-title 
+                          = find_email(current_user)
+                        %p.item-info 
+                          = notif.content
+                          = link_to "supprimer", delete_notification_path(notif.id), method: :delete
                 %li.divider
                 .notification-footer
                   %h4.menu-title

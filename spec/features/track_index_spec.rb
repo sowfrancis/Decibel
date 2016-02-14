@@ -4,6 +4,7 @@ RSpec.feature "track", type: :feature do
   before(:each) do 
     @bob = create(:user)
     @track = create(:track)
+    
     sign_in @bob
     visit("/tracks/")
   end
@@ -18,7 +19,7 @@ RSpec.feature "track", type: :feature do
     end
 
     scenario 'i can see the comment field' do
-      expect(page).to have_css('#comment')
+      expect(page).to have_css('.comment_content')
     end
   end
 end

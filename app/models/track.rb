@@ -5,6 +5,7 @@ class Track < ActiveRecord::Base
   has_many :votes
   has_many :tags, through: :taggings, :dependent => :destroy
   has_many :taggings
+  has_many :notifications
 
   before_save :create_tag
 
@@ -34,7 +35,7 @@ class Track < ActiveRecord::Base
 
   def create_tag
     tags = Tag.all
-    tags = tags.split(" ").map do |tag|
+    tags = tags.split(" , ").map do |tag|
       Tag.find_or_create_by(name: tag)
     end
     self.tags << tags
