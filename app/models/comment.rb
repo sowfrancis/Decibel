@@ -6,12 +6,22 @@ class Comment < ActiveRecord::Base
   before_save :send_notification
 
   def send_notification
-    Notification.create(user_id: track.user.id,
-                       comment_id: self.track.id,
-                       track_id: track_id,
-                       content: "Vous avez recu un commentaire!"
-                       )
+    if comment_owner == track_owner
+
+    else
+      Notification.create(user_id: track.user.id,
+                         comment_id: self.user.id,
+                         track_id: track.id,
+                         content: "Vous avez recu un commentaire!"
+                         ) unless user == track_owner
+    end
   end
   
- 
+  def track_owner
+    user = track.user
+  end
+
+  def comment_owner
+    user = self.user
+  end
 end
