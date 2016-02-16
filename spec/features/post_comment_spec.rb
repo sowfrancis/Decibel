@@ -9,15 +9,11 @@ RSpec.feature "comment", type: :feature do
 		visit "/tracks/"
 	end
 	
-	context "comment" do
+	context "when i want to post a comment" do
 		scenario "i can post a comment" do
-			binding.pry
 			fill_in 'comment_content', with: 'yooo'
 			click_on 'poster votre commentaire'
-
 			expect(page).to have_text("yooo")
-			expect(@track.comments.count).to eq 1
-			expect(@bob.notifications.count).to eq 1
 		end
 	end
 
