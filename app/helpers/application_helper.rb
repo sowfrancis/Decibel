@@ -16,5 +16,13 @@ module ApplicationHelper
   def track_owner(user)
     current_user = Track.where(user_id: current_user)
   end
+
+  def bootstrap_flash
+    if :notice
+      "alert-warning"
+    else
+
+    end
+  end
   
 end
