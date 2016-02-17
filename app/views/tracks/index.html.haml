@@ -2,12 +2,12 @@
 .row.col-md-12
   - @tracks.each do |track|
     .sound-content.gutter.col-md-2.col-sm-4.col-lg-3
+      .name_user
+        = track.user.email
       = link_to track_path(track.id) do
         .covermusic
           = image_tag track.avatar.url, class: 'img-responsive'
       %p
-      .name_user
-        = track.user.email
       / /* audio player */
       .audio-player
         .bbplayer
@@ -22,19 +22,36 @@
             %source{:src => "#{track.audio.url}"}
       / /* commentaire */
       .comment_track
-        - if user_signed_in?
-          = render 'comments/new', locals: {track: track}
-        - else
       / /* bouton pour supprimer */
       .sound-footer
       - if user_signed_in?
         %p.like-delete
+          .btn.btn-circle-micro.btn-primary.glyphicon
+            %span= link_to "", like_track_path(track), method: :put, class: 'glyphicon-thumbs-up'
           = track.score
-          = link_to "<i class='fa fa-heartbeat fa-lg'></i>".html_safe, like_track_path(track), method: :put
-          = link_to "<i class='fa fa-comment'></i>".html_safe, track_path(track.id)
+          %a.btn.btn-circle-micro.btn-primary{"data-target" => "#myModal", "data-toggle" => "modal", :href => "#aboutModal"}
+            %span.glyphicon.glyphicon-comment
           = track.comments.size
+          #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+            .modal-dialog
+              .modal-content
+                .modal-header
+                  %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} X
+                  %h4#myModalLabel.modal-title Commentaire:
+                .modal-body
+                  %center
+                    %br/
+                    %h3.media-heading 
+                      - if user_signed_in?
+                        = render 'comments/new', locals: {track: track}
+                      - else
+                .modal-footer
+                  %center
+                    %button.btn.btn-circle.btn-default{"data-dismiss" => "modal", :type => "button"}
+                      %span.glyphicon.glyphicon-remove
           -if current_user.id == track.user_id
-            = link_to "<i class='fa fa-trash-o fa-lg'></i>".html_safe, delete_track_path(track.id),method: :delete
+            .btn.btn-circle-micro.btn-primary.glyphicon
+              %span= link_to "".html_safe, delete_track_path(track.id),method: :delete, class: 'glyphicon-trash'
           - else
       - else
 %script{:src => "https://raw.githubusercontent.com/73rhodes/bbplayer/master/js/bbplayer.js"}
