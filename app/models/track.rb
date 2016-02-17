@@ -34,9 +34,12 @@ class Track < ActiveRecord::Base
 
 
   def create_tag
-    tags.split(" , ").map do |tag|
+    tags = Tag.all
+    tags_list = []
+    tags.split(",").map do |tag|
       Tag.find_or_create_by(name: tag)
     end
+    tags_list << tags
   end
 
 

@@ -3,7 +3,8 @@
     = image_tag @track.avatar.url, class: 'img-show'
   .sound-content-show.col-md-6.col-lg-6
     .name_user
-      = find_email(@track.user_id)
+      %b
+        = find_email(@track.user_id)
     .audio-player-show
       .bbplayer
         %span.bb-rewind
@@ -19,10 +20,19 @@
           %source{:src => "#{@track.audio.url}"}
     .sound-footer-show
       %p.like-delete-show
-        = @track.score
-        = link_to "<i class='fa fa-heartbeat fa-lg'></i>".html_safe, like_track_path(@track), method: :put
-        = link_to "<i class='fa fa-trash-o fa-lg'></i>".html_safe, delete_track_path(@track.id),method: :delete
-        = link_to "<i class='fa fa-envelope-o'></i>".html_safe, new_message_path(:user => @track.user_id), method: :post
+        .track_button
+          = link_to like_track_path(@track), method: :put do
+            %i.fa.fa-heartbeat.fa-lg
+            J'aime
+            = @track.score
+        .track_button
+          = link_to delete_track_path(@track.id), method: :delete do
+            %i.fa.fa-trash-o.fa-lg
+            Ordure
+        .track_button
+          = link_to new_message_path(:user => @track.user_id), method: :post do
+            %i.fa.fa-envelope-o
+            Message
       .comment_all
         %i.fa.fa-comment-o
           Commentaires:

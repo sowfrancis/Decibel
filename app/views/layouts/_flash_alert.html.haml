@@ -1,0 +1,11 @@
+.alert.alert-warning.collapse.alert-dismissible.fade.in{:role => "alert", id: "flash", style: "hidden"}
+  %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+    %span{"aria-hidden" => "true"} ×
+  %strong HEY!
+  = notice
+  :javascript
+    window.setTimeout(function() {
+      $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+      });
+    }, 3000);

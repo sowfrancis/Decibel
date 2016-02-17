@@ -22,6 +22,7 @@
 html, body {
     color: black;
     background-image: url("maze-white.png");
+    height: 100%;
 }
 
 
@@ -35,11 +36,12 @@ html, body {
   width: 90%;
   background: white;
   border: 2px solid transparent;
-  max-height: 100%;
+  min-height: 100%;
   border-left: 2px solid white;
   border-right: 2px solid white;
   background-color: #C0C0C0 ;
   background-image: url("maze-white.png");
+
 
 }
 
@@ -123,6 +125,24 @@ label.label_password{
 
 /*audio tracks*/
 
+.btn-circle-micro {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+
+.glyphicon-thumbs-up{
+  color: white;
+}
+
+.glyphicon-trash{
+  color: white;
+}
+
 .header_track{
   background-image: url("vinyl.png");
   background-size: cover;
@@ -167,12 +187,12 @@ margin: 15px;
 
 
 .sound-content{
-  padding-top: 40px;
+  padding-top: 5px;
   text-align: center;
   margin: auto;
   background-color: white;
   background-image: url("maze-white.png");
-  width: 24%; 
+  width: 19%; 
  }  
 
 /* dropdown notif */
@@ -239,7 +259,7 @@ margin: 15px;
   margin: auto;
   text-align:right;
   padding: 50px;
-  height: 550px;
+  height: 400px;
   width: 70%;
   background-color: white;
   border-radius: 10px;
@@ -298,7 +318,25 @@ margin: 15px;
 
 .img-show{
   width: 100%;
-  height: 300px;
+  height: 240px;
+}
+
+.track_button {
+    padding: 0 9px 1px 9px;
+    font-size: 15px;
+    line-height: 29px;
+    height: 30px;
+    width: 130px;
+    color: blue;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    font-weight: 400;
+    border-radius: 3px;
+    background-color: white;
+    background-image: url("maze-white.png");
 }
 
 .contenttrack-show{
@@ -308,6 +346,11 @@ margin: 15px;
 
 .audio-player-show{
   text-align: center;
+  height: 64px;
+  padding-top: 15px;
+  background-image: url("maze-white.png");
+  background-color: white;
+  border-radius: 20%
 }
 
 .covermusic-show{
@@ -322,6 +365,10 @@ h4{
   text-align: left;
 }
 
+.audio_player_show{
+
+}
+
 /* Commentaire */
 
 .comment_all{
@@ -329,9 +376,6 @@ h4{
   box-shadow: 10px 10px;
 }
 
-.comment_track{
-
-}
 
 /*conversations et messages*/
 
@@ -407,24 +451,20 @@ Optional styling for bbplayer elements.
 .bbplayer {
   font: 200 16px/1.5 Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
   color: #898989;
-  border: 1px solid #E0E0E0;
-  border-radius: 5px;
   display: inline-block;
-  padding: 5px;
-  box-shadow: 0 0 5px rgba(100,100,100,0.2);
-  width: 239px;
 }
 
 .bb-play {
   display: inline-block;
   vertical-align: middle;
-  height: 32px;
-  width:  32px;
+  height: 42px;
+  width: 42px;
+  border: 7px solid #CFCFCF;
   border-radius: 50%; 
   background: transparent; 
   background-image: url('play.png');
   background-repeat: no-repeat;
-  background-position: 7px center;
+  background-position: 5px center;
   cursor: pointer;
 }
 
@@ -458,26 +498,31 @@ Optional styling for bbplayer elements.
   cursor: pointer;
 }
 
+.bb-track-display {
+  font-size: 14pt;
+}
+
 .bb-trackTime {
   display: inline-block;
   vertical-align: top;
-  font-size: 14px;
 }
 
 .bb-trackLength {
   display: inline-block;
   vertical-align: top;
-  font-size: 14px;
 }
 
 .bb-trackTitle {
   display: inline-block;
-  vertical-align:bottom;
+  vertical-align: top;
   font-weight: bold;
-  font-size: 12px;
   width: 8em;
+  overflow: hidden;
+  text-align: center;
+}
 
-  text-align: left;
+.bb-album-display {
+  display: none;
 }
 
 .bb-artist {
@@ -517,11 +562,6 @@ Optional styling for bbplayer elements.
   vertical-align: middle;
   line-height: 20px;
   text-align: center;
-  border-radius: 3px;
-  border: 1px solid #CFCFCF;
-  padding: 5px;
-  box-shadow: inset 0 0 15px rgba(100,100,100,0.1);
-  background: #EFEFEF;
 }
 
 @media all and (max-width: 480px) {
@@ -531,7 +571,6 @@ Optional styling for bbplayer elements.
     color: #898989;
     display: inline-block;
   }
-
   .bb-trackTitle {
     width: 6em;
   }
@@ -542,10 +581,6 @@ Optional styling for bbplayer elements.
 
   .bb-album-display {
     display: none;
-  }
-
-  .bb-album {
-    font-size: 12px;
   }
 
   .bb-trackLength {
