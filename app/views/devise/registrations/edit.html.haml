@@ -3,6 +3,11 @@
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
   = devise_error_messages!
   .field
+    = f.label :avatar
+    %br
+    = f.file_field :avatar
+    %br
+  .field
     = f.label :email
     %br/
     = f.email_field :email, autofocus: true
@@ -10,9 +15,14 @@
     %div
       Currently waiting confirmation for: #{resource.unconfirmed_email}
   .field
-    = f.label :username
+    = f.label :firstname
     %br
-    = f.text_field :name
+    = f.text_field :firstname, autofocus: true
+  .field
+    = f.label :lastname
+    %br
+    = f.text_field :lastname, autofocus: true
+    %br
   .field
     = f.label :password
     %i (leave blank if you don't want to change it)

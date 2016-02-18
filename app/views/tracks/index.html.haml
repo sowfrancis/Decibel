@@ -3,7 +3,8 @@
   - @tracks.each do |track|
     .sound-content.gutter.col-md-2.col-sm-4.col-lg-3
       .name_user
-        = track.user.email
+        = track.user.firstname
+        = track.user.lastname
       = link_to track_path(track.id) do
         .covermusic
           = image_tag track.avatar.url, class: 'img-responsive'
