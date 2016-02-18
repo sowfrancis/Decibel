@@ -123,6 +123,27 @@ label.label_password{
   padding: -20px;
 }
 
+
+/*profile avatar*/
+
+.header_profile{
+  background-image: url("VINYL.jpg");
+}
+
+#profile_avatar{
+  height: 200px;
+  width: 250px;
+  margin-bottom: 25px;
+}
+
+.user_name{
+  margin-top: 20px;
+}
+
+.user_identity{
+  line-height: 25px;
+  font-size: 25px;
+}
 /*audio tracks*/
 
 .btn-circle-micro {
