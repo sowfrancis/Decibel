@@ -49,6 +49,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'rails_12factor', group: :production
+ruby '2.2.1'
 
 
 
@@ -70,10 +71,5 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-<<<<<<< HEAD
-  ruby '2.2.1'
-=======
-  ruby '2.2.4'
->>>>>>> 803d7fea766e6a9c73ad05520bb164b9ad250e93
 end
 
