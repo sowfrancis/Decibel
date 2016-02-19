@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   before_filter :notifications, :comments
   before_filter :tracking
   
+  helper_method :current_user
+
   def notifications
     @notifications = Notification.all
     @notifications.each do |notification|
@@ -20,6 +22,10 @@ class ApplicationController < ActionController::Base
   def tracking
     @tracks = Track.all 
     @track = @tracks.each { |track| track }
+  end
+
+  def current_user
+    @current_user ||= user_from_remember_token
   end
 
 
