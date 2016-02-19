@@ -1,0 +1,612 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self 
+ *= require font-awesome
+ */
+
+
+@import "bootstrap";
+@import "bootstrap-sprockets";
+
+html, body {
+    color: black;
+    background-image: url("maze-white.png");
+    height: 100%;
+}
+
+
+.footer{
+  position: absolute;
+  clear:both; /*Place le pied en element flottant*/
+} 
+
+
+.container{
+  width: 90%;
+  background: white;
+  border: 2px solid transparent;
+  min-height: 100%;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  background-color: #C0C0C0 ;
+  background-image: url("maze-white.png");
+
+
+}
+
+.navbar.navbar-inverse.navbar-static-top{
+  margin-bottom: 0px;
+  color: black;
+}
+
+.navbar-collapse.collapse.navbar-responsive-collapse{
+  
+
+}
+
+.header{
+  background-image: url("VINYL.jpg");
+  background-size: cover;
+  height: 300px;
+}
+
+h1{
+  text-align: center;
+  font-size: 40px;
+  color: white;
+}
+
+p{
+  line-height: 20px;
+  font-size: 12px;
+}
+
+hr{
+  width: 50%;
+}
+
+li.current_user{
+  float: right;
+}
+
+
+.password{
+  text-align: right;
+}
+
+.passconf{
+  text-align: left;
+}
+
+#user_password{
+  text-align: left;
+}
+
+label.label_password{
+  text-align: right;
+}
+
+.log_in{
+  margin: auto;
+  text-align: center;
+  border:1px solid transparent;
+  background-color: white !important;
+  width: 50%;
+  border-radius: 10px;
+  box-shadow: 10px 10px;
+  margin-top: 45px;
+  height: 400px;
+  padding: -20px;
+
+}
+
+.sign_up{
+  margin: auto;
+  text-align: center;
+  border:1px solid transparent;
+  background-color: white !important;
+  width: 50%;
+  border-radius: 10px;
+  box-shadow: 10px 10px;
+  height: 400px;
+  padding: -20px;
+}
+
+
+/*profile avatar*/
+
+.header_profile{
+  background-image: url("VINYL.jpg");
+}
+
+#profile_avatar{
+  height: 200px;
+  width: 250px;
+  margin-bottom: 25px;
+}
+
+.user_name{
+  margin-top: 20px;
+}
+
+.user_identity{
+  line-height: 25px;
+  font-size: 25px;
+}
+/*audio tracks*/
+
+.btn-circle-micro {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+
+.glyphicon-thumbs-up{
+  color: white;
+}
+
+.glyphicon-trash{
+  color: white;
+}
+
+.header_track{
+  background-image: url("vinyl.png");
+  background-size: cover;
+  height: 300px;
+}
+
+#search{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.contenttrack{
+  margin: auto;
+}
+
+
+.audio_player, .comment_track, .sound-footer{
+margin: 15px;
+}
+
+.supprimer{
+  text-align: right;
+}
+
+.covermusic{
+  text-align: right;
+}
+
+.sound-content.gutter {
+  margin-right: 0px;
+  margin-left: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+
+}
+.sound-content.gutter > [class^="col-"], .gutter-20 > [class^=" col-"] {
+  padding-right: 10px;
+  padding-left: 10px;
+  margin: auto;
+}
+
+
+
+.sound-content{
+  padding-top: 5px;
+  text-align: center;
+  margin: auto;
+  background-color: white;
+  background-image: url("maze-white.png");
+  width: 19%; 
+ }  
+
+/* dropdown notif */
+
+.glyphicon-bell {
+   
+    font-size:1.5rem;
+  }
+
+.notifications {
+   min-width:420px; 
+  }
+  
+  .notifications-wrapper {
+     overflow:auto;
+      max-height:250px;
+    }
+    
+ .menu-title {
+     color:#ff7788;
+     font-size:1.5rem;
+      display:inline-block;
+      }
+ 
+.glyphicon-circle-arrow-right {
+      margin-left:10px;     
+   }
+  
+   
+ .notification-heading, .notification-footer  {
+  padding:2px 10px;
+       }
+      
+        
+.dropdown-menu.divider {
+  margin:5px 0;          
+  }
+
+.item-title {
+  
+ font-size:1.3rem;
+ color:#000;
+    
+}
+
+.notifications a.content {
+ text-decoration:none;
+ background:#ccc;
+
+ }
+    
+.notification-item {
+ padding:10px;
+ margin:5px;
+ background:#ccc;
+ border-radius:4px;
+ }
+
+
+
+/* track_new page */
+
+.new_track{
+  margin: auto;
+  text-align:right;
+  padding: 50px;
+  height: 400px;
+  width: 70%;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 5px 5px;
+  background-image: url("maze-white.png");
+  word-wrap: break-word;
+  }
+
+.image-frame{
+    background:#ccc;
+    border:1px solid #000;
+    display:block;
+    margin-right:1em;
+    max-width:300px;
+    max-height:300px;
+    text-align:center;
+    margin-bottom: 10px;
+  }
+
+
+.upload_file{
+  text-align: left;
+}
+
+.header_new_track{
+  background-image: url("vynil1");
+  height: 300px;
+  background-size: cover;
+
+}
+
+.audio_file{
+  margin-top: 40px;
+}
+
+.upload{
+  margin-top: 40px;
+}
+
+#track_audio{
+  
+}
+
+.form{
+  word-spacing: 3px;
+}
+
+/* page show */
+
+.sound-content-show{
+  padding-top: 25px;
+  margin-top: 20px;
+  text-align: center;
+  border-left: 1px white groove;
+}
+
+.img-show{
+  width: 100%;
+  height: 240px;
+}
+
+.track_button {
+    padding: 0 9px 1px 9px;
+    font-size: 15px;
+    line-height: 29px;
+    height: 30px;
+    width: 130px;
+    color: blue;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    font-weight: 400;
+    border-radius: 3px;
+    background-color: white;
+    background-image: url("maze-white.png");
+}
+
+.contenttrack-show{
+  padding: 30px 30px auto;
+  margin-right: 15px; 
+} 
+
+.audio-player-show{
+  text-align: center;
+  height: 64px;
+  padding-top: 15px;
+  background-image: url("maze-white.png");
+  background-color: white;
+  border-radius: 20%
+}
+
+.covermusic-show{
+  padding-left: 50px;
+}
+
+p.like-delete-show{
+  margin-top: 10px;
+}
+
+h4{
+  text-align: left;
+}
+
+.audio_player_show{
+
+}
+
+/* Commentaire */
+
+.comment_all{
+  margin-top: 20px; 
+  box-shadow: 10px 10px;
+}
+
+
+/*conversations et messages*/
+
+.messages {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.content_message{
+  height: 60px;
+  border-radius: 0 10px;
+  padding: 10px;
+}
+
+.user_message{
+  text-align: center;
+  margin-top: 30px;
+  border-left: 1px outset #333;
+  background-color: #C0C0C0;
+  height: 200px;
+  border-radius: 10px;
+}
+
+.user_conversation{
+  margin-left: 20px;
+  margin-top: 50px;
+}
+
+.icon_message{
+  text-align: center;
+  margin-top: 90px;
+}
+
+h2{
+  text-align: center;
+}
+
+.mailbox{
+  text-align: center;
+  margin-top: 30px;
+  text-align: center;
+  margin-top: 30px;
+  height: 100%;
+  border-radius: 10px;
+}
+
+/* notfications */
+
+p.notifications{
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* conversation*/
+
+.well{
+  margin-top: 60px;
+}
+
+.title, h1{
+  color: black;
+}
+/* audio player*/
+
+@charset 'UTF-8';
+/* 
+Optional styling for bbplayer elements.
+*/
+@import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
+
+.bbplayer {
+  font: 200 16px/1.5 Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #898989;
+  display: inline-block;
+}
+
+.bb-play {
+  display: inline-block;
+  vertical-align: middle;
+  height: 42px;
+  width: 42px;
+  border: 7px solid #CFCFCF;
+  border-radius: 50%; 
+  background: transparent; 
+  background-image: url('play.png');
+  background-repeat: no-repeat;
+  background-position: 5px center;
+  cursor: pointer;
+}
+
+.bb-playing {
+  vertical-align: middle;
+  background-image: url('pause.png');
+  background-position: center center;
+}
+
+.bb-forward {
+  vertical-align: middle;
+  display: inline-block;
+  height: 32px;
+  width:  32px;
+  background: transparent;
+  background-image: url('forward.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.bb-rewind {
+  vertical-align: middle;
+  display: inline-block;
+  height: 32px;
+  width:  32px;
+  background: transparent;
+  background-image: url('rewind.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.bb-track-display {
+  font-size: 14pt;
+}
+
+.bb-trackTime {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.bb-trackLength {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.bb-trackTitle {
+  display: inline-block;
+  vertical-align: top;
+  font-weight: bold;
+  width: 8em;
+  overflow: hidden;
+  text-align: center;
+}
+
+.bb-album-display {
+  display: none;
+}
+
+.bb-artist {
+  font-size: 14px;
+}
+
+.bb-album {
+  font-size: 14px;
+}
+
+.bb-albumCover {
+  height: 38px;
+  width: 38px;
+  line-height: 38px;
+  vertical-align: top;
+  background: #999999;
+  border: 1px solid #666666;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  margin-left: 5px;
+  display: inline-block;
+}
+
+.bb-debug {
+  height:10em;
+  width: 19em;
+  border: 1px solid #DDD;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  overflow: auto;
+  font-weight: normal;
+  font-size: 14px/1.5;
+}
+
+.bbplayer div.playerWindow {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 20px;
+  text-align: center;
+}
+
+@media all and (max-width: 480px) {
+
+  .bbplayer {
+    font: 200 14px/1.5 Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #898989;
+    display: inline-block;
+  }
+  .bb-trackTitle {
+    width: 6em;
+  }
+
+  .bb-track-display {
+    font-size: 12pt;
+  }
+
+  .bb-album-display {
+    display: none;
+  }
+
+  .bb-trackLength {
+    display: none;
+  }
+
+}
+

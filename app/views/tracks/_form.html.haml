@@ -1,0 +1,6 @@
+.form
+  - form_tag() do
+    %p
+      = f.label_tag :tags
+    %p
+      = text_field_tag :tags, params[:tags]
