@@ -88,5 +88,6 @@ test:
 #
 production:
   <<: *default
-  
-  
+  adapter: postgresql
+  encoding: unicode
+  database: Decibel_production
