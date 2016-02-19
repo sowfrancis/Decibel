@@ -1,32 +1,37 @@
 = render 'layouts/flash_alert_devise'
-.row
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   .sign_up
-    %h2 Sign up
-    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      .field
-        = f.label "firstname"
-        %br
-        = f.text_field :firstname, autofocus: true
-        %br
-      .field
-        = f.label "lastname"
-        %br
-        = f.text_field :lastname, autofocus: true
-        %br
-      .field
-        = f.label :email
-        %br/
-        = f.email_field :email, autofocus: true, size: "50x50"
-      .field
-        = f.label :password
-        - if @minimum_password_length
+    .row
+      .header_log
+        .titre_log
+          %h2 Sign up
+      .body_name
+        .field_name.col-md-6
+          = f.label "firstname"
+          %br
+          = f.text_field :firstname, autofocus: true
+          %br
+        .field_last.col-md-6
+          = f.label "lastname"
+          %br
+          = f.text_field :lastname, autofocus: true
+          %br
+      .body_sign
+        .field_email
+          = f.label :email
           %br/
-        = f.password_field :password, autocomplete: "off"
-      .field
-        = f.label :password_confirmation
-        %br/
-        = f.password_field :password_confirmation, autocomplete: "off"
-        %br
-      .actions
-        = f.submit "Sign up", class: "btn btn-primary"
-    = render "devise/shared/links"
+          = f.email_field :email, autofocus: true, size: "35x35"
+        .field_pass
+          = f.label :password
+          - if @minimum_password_length
+            %br/
+          = f.password_field :password, autocomplete: "off", size: '35x35'
+        .field_pass
+          = f.label :password_confirmation
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "off", size: '35x35'
+          %br
+        .actions_3
+          = f.submit "Sign up", class: "btn btn-primary"
+        .actions_4
+          = render "devise/shared/links"

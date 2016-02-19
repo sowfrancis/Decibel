@@ -58,7 +58,7 @@ html, body {
 .header{
   background-image: url("VINYL.jpg");
   background-size: cover;
-  height: 300px;
+  height: 230px;
 }
 
 h1{
@@ -93,21 +93,76 @@ li.current_user{
   text-align: left;
 }
 
-label.label_password{
-  text-align: right;
+.titre_log{
+  margin-bottom: 40px;
+  margin-top: -10px;
+}
+
+.actions{
+  text-align: center;
+}
+
+.actions_2{
+  margin-top: 30px;
+  text-align: center;
+}
+
+.actions_3{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.actions_4{
+  margin-top: 10px;
+  text-align: center;
+}
+
+.field_email{
+  margin-left: 25%;
+  margin-top: 20px;
+}
+
+.header_log{
+  height: 80px;
+  margin-top: -60px;
+  background-color: #C0C0C0 ;
+}
+
+.field_pass{
+  margin-left: 25%;
+  margin-top: 15px;
+}
+
+.body_sign{
+  margin-top: 100px;
+}
+
+.body_name{
+  margin-left: 50px;
+}
+
+.field_remember{
+  text-align: center;
+  margin-top: 15px;
+}
+
+.field_name{
+  margin-top: 20px;
+}
+
+.field_last{
+  margin-top: 20px;
 }
 
 .log_in{
   margin: auto;
-  text-align: center;
   border:1px solid transparent;
   background-color: white !important;
   width: 50%;
   border-radius: 10px;
-  box-shadow: 10px 10px;
+  box-shadow: 5px 5px;
   margin-top: 45px;
   height: 400px;
-  padding: -20px;
 
 }
 
@@ -118,14 +173,13 @@ label.label_password{
 
 .sign_up{
   margin: auto;
-  text-align: center;
+  margin-top: 40px;
   border:1px solid transparent;
   background-color: white !important;
   width: 50%;
   border-radius: 10px;
-  box-shadow: 10px 10px;
+  box-shadow: 5px 5px;
   height: 485px;
-  padding: -20px;
 }
 
 
@@ -439,6 +493,7 @@ h4{
 
 h2{
   text-align: center;
+  line-height: 90px;
 }
 
 .mailbox{
