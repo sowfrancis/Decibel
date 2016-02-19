@@ -111,6 +111,11 @@ label.label_password{
 
 }
 
+.hidden {
+  display: none!important;
+  visibility: hidden!important;
+}
+
 .sign_up{
   margin: auto;
   text-align: center;
@@ -119,7 +124,7 @@ label.label_password{
   width: 50%;
   border-radius: 10px;
   box-shadow: 10px 10px;
-  height: 400px;
+  height: 485px;
   padding: -20px;
 }
 
