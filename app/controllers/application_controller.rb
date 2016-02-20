@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
   before_filter :notifications, :comments
   before_filter :tracking
   
-  helper_method :current_user
 
   def notifications
     @notifications = Notification.all
@@ -22,12 +21,6 @@ class ApplicationController < ActionController::Base
   def tracking
     @tracks = Track.all 
     @track = @tracks.each { |track| track }
-  end
-
-  def current_user
-    if cookies[:remember_token].present?
-      @current_user ||= User.find_by_remember_token(cookies[:remember_token])
-    end
   end
 
 
