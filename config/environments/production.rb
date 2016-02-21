@@ -79,4 +79,13 @@ Rails.application.configure do
 
   config.react.variant = :production
 
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['decibelgroove'],
+      :access_key_id => ENV['AKIAJ4PXMFLYODNHDOGQ'],
+      :secret_access_key => ENV['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']
+    }
+  }
+
 end

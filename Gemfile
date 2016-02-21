@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'dropbox-sdk'
+gem 'aws-sdk'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
