@@ -11,6 +11,9 @@ class Track < ActiveRecord::Base
 
 
   has_attached_file :avatar, default_url: "/images/:style/missing.png"
+                    :storage => :s3,
+                                :bucket => 'decibelgroove',
+                                :s3_credentials => S3_CREDENTIALS (we set this in an initializer)
   validates_attachment_content_type :avatar, :content_type => [ 'image/png','image/jpeg']
 
   has_attached_file :audio
