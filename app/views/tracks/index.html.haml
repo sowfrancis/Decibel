@@ -1,4 +1,7 @@
 //= render :partial => "tracks/search" 
+- if user_signed_in?
+-else
+  = render 'layouts/header'
 .row.col-md-12
   - @tracks.each do |track|
     .sound-content.gutter.col-md-2.col-sm-4.col-lg-3

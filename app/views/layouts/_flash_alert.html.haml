@@ -1,11 +1,13 @@
-.alert.alert-warning.collapse.alert-dismissible.fade.in{:role => "alert", id: "flash"}
-  %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
-    %span{"aria-hidden" => "true"} ×
-  %strong HEY!
-  = notice
-  :javascript
-    window.setTimeout(function() {
-      $(".alert").fadeTo(500, 0).slideUp(500, function(){
-        $(this).remove(); 
-      });
-    }, 3000);
+- if flash[:notice]
+  .alert.alert-warning.collapse.alert-dismissible.fade.in{:role => "alert", id: "flash"}
+    %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+      %span{"aria-hidden" => "true"} ×
+    %strong HEY!
+    = notice
+- else
+:javascript
+  window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+      $(this).remove(); 
+    });
+  }, 3000);

@@ -12,9 +12,9 @@ class CommentsController < ApplicationController
   def create
      @comment = Comment.new(params_comment)
     if @comment.save
-      redirect_to track_path(@comment.track.id), notice: "thanks #{@comment.user.email} for your posting"
+      redirect_to track_path(@comment.track.id), notice: "thanks #{@comment.user.firstname} #{@comment.user.lastname} for your posting!!"
     else
-      redirect_to tracks_path, notice: "erreur"
+      redirect_to tracks_path, notice: "error! Please try to post a another comment."
     end
   end
 

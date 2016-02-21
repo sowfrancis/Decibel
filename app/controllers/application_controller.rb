@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+
   def comments
     @comments = Comment.all
   end

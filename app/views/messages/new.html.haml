@@ -1,7 +1,7 @@
 .well
   %p
     %h3
-      Send a message to #{@user.email}
+      Send a message to #{@user.firstname}  #{@user.lastname}
     %p
       = form_tag({controller: "messages", action: "create"}, method: :post) do
         %p

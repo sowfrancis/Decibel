@@ -8,7 +8,7 @@ class ConversationsController < ApplicationController
   def create
     recipient_emails = conversation_params(:recipients).split(',')
     recipients = User.where(email: recipient_emails).all
-    conversation = current_user.send_message(recipients, *conversation_params(:body, :subject)).conversation
+    conversation = current_user.send_message(recipients, conversation_params(:body, :subject)).conversation
   end
 
 

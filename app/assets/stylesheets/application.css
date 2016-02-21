@@ -189,8 +189,17 @@ li.current_user{
   background-image: url("VINYL.jpg");
 }
 
+.image_user{
+  text-align: center;
+}
+
+
+#show_avatar{
+  height: 100px;
+}
+
 #profile_avatar{
-  height: 200px;
+  height: 250px;
   width: 250px;
   margin-bottom: 25px;
 }
@@ -430,7 +439,8 @@ margin: 15px;
   padding-top: 15px;
   background-image: url("maze-white.png");
   background-color: white;
-  border-radius: 20%
+  border-radius: 20%;
+  margin-top: 15px;
 }
 
 .covermusic-show{

@@ -4,7 +4,8 @@
   .sound-content-show.col-md-6.col-lg-6
     .name_user
       %b
-        = find_email(@track.user_id)
+        = @track.user.firstname
+        = @track.user.lastname
     .audio-player-show
       .bbplayer
         %span.bb-rewind
