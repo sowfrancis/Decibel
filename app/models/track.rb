@@ -10,10 +10,15 @@ class Track < ActiveRecord::Base
   before_save :create_tag
 
 
-  has_attached_file :avatar, default_url: "/images/:style/missing.png"
+  has_attached_file :avatar, 
+                    default_url: "/images/:style/missing.png",
                     :storage => :s3,
                                 :bucket => 'decibelgroove',
-                                :s3_credentials => S3_CREDENTIALS (we set this in an initializer)
+                                :s3_credentials => {
+                                  :access_key_id => "xxx",
+                                  :secret_access_key => "xxx"
+                                 }
+ 
   validates_attachment_content_type :avatar, :content_type => [ 'image/png','image/jpeg']
 
   has_attached_file :audio
