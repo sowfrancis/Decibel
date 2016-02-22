@@ -13,8 +13,8 @@ class Track < ActiveRecord::Base
   has_attached_file :avatar, 
                     default_url: "/images/:style/missing.png",
                     :storage => :s3,
-                                :bucket => 'decibelgroove',
-                                :s3_credentials => {
+                    :s3_credentials => {
+                                  :bucket => 'decibelgroove',
                                   :access_key_id => "xxx",
                                   :secret_access_key => "xxx"
                                  }
