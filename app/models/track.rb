@@ -14,9 +14,9 @@ class Track < ActiveRecord::Base
                     default_url: "/images/:style/missing.png",
                     :storage => :s3,
                     :s3_credentials => {
-                                  :bucket => 'decibelgroove',
-                                  :access_key_id => "xxx",
-                                  :secret_access_key => "xxx"
+                                  :bucket => ENV['S3_BUCKET_NAME'],
+                                  :access_key_id =>  ENV['AWS_ACCESS_KEY_ID'],
+                                  :secret_access_key =>  ENV['AWS_SECRET_ACCESS_KEY']
                                  }
  
   validates_attachment_content_type :avatar, :content_type => [ 'image/png','image/jpeg']
