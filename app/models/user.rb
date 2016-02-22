@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
                       :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
                       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'],
                       :s3_host_name => 's3-website-us-east-1.amazonaws.com',
-                      :url => ":s3_domain_url",
+                      :url => "decibelgroove.s3-website-us-east-1.amazonaws.com",
                       :path => '/:class/:attachment/:id_partition/:style/:filename'
                     }
 
