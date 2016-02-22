@@ -18,6 +18,7 @@ gem 'rspec-rails', '~> 3.0'
 gem 'capybara'
 gem 'rails_admin'
 gem 'rails', '4.2.4'
+gem 'turbolinks'
 # Use postgresql as the database for Active Record
 gem 'pg'
 

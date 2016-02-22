@@ -58,7 +58,7 @@ html, body {
 .header{
   background-image: url("VINYL.jpg");
   background-size: cover;
-  height: 230px;
+  height: 350px;
 }
 
 h1{
@@ -187,6 +187,7 @@ li.current_user{
 
 .header_profile{
   background-image: url("VINYL.jpg");
+  margin: auto;
 }
 
 .image_user{
@@ -232,11 +233,6 @@ li.current_user{
   color: white;
 }
 
-.header_track{
-  background-image: url("vinyl.png");
-  background-size: cover;
-  height: 300px;
-}
 
 #search{
   text-align: center;
