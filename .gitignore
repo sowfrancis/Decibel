@@ -10,8 +10,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
-/tmp
+/tip
 
-# îgnore all files.
+# Ignore all files.
 /test/data
 /public/system
