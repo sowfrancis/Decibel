@@ -9,18 +9,21 @@ class Track < ActiveRecord::Base
 
   before_save :create_tag
 
-
-  has_attached_file :avatar, 
-                    default_url: "/images/:style/missing.png",
-                    :storage => :s3,
-                    :s3_credentials => {
-                                  :bucket => ENV['S3_BUCKET_NAME'],
-                                  :s3_region => ENV['AWS_REGION'],
-                                  :access_key_id =>  ENV['AWS_ACCESS_KEY_ID'],
-                                  :secret_access_key =>  ENV['AWS_SECRET_ACCESS_KEY'],
-                                  :url => ":s3_domain_url",
-                                  :path => '/:class/:attachment/:id_partition/:style/:filename'
-                                 }
+  if Rails.env.production?
+    has_attached_file :avatar,
+                      :storage => :s3,
+                      :s3_credentials => {
+                                    :bucket => ENV['S3_BUCKET_NAME'],
+                                    :s3_region => ENV['AWS_REGION'],
+                                    :access_key_id =>  ENV['AWS_ACCESS_KEY_ID'],
+                                    :secret_access_key =>  ENV['AWS_SECRET_ACCESS_KEY'],
+                                    :url => ":s3_domain_url",
+                                    :path => '/:class/:attachment/:id_partition/:style/:filename'
+                                   }
+  else
+    has_attached_file :avatar, 
+                      default_url: "/images/:style/missing.png"
+  end
  
   validates_attachment_content_type :avatar, :content_type => [ 'image/png','image/jpeg']
 
@@ -49,7 +52,7 @@ class Track < ActiveRecord::Base
     tag_list = []
       tags.each do |tag|
         if tag == 1
-          Tag.find(name: [:name])
+          Tag.find(name: '#{tag}')
         else
           tag_list << Tag.create(name: tag)
         end

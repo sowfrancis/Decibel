@@ -46,7 +46,6 @@ group :development, :test do
   gem 'byebug'
   gem 'faker'
   gem 'poltergeist'
-  gem 'phantomjs', :require => 'phantomjs/poltergeist'
   gem 'selenium-webdriver'
   gem 'database_cleaner', '~> 1.4.1'
 end
