@@ -78,9 +78,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.react.variant = :production
-
-  if Rails.env.production?
-    config.paperclip_defaults = {
+  config.paperclip_defaults = {
       :storage => :s3,
       :s3_credentials => {
         :s3_region => ENV['AWS_REGION'],
@@ -89,6 +87,4 @@ Rails.application.configure do
         :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
       }
     }
-  else
-  end
 end

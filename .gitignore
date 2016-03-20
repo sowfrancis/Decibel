@@ -16,3 +16,4 @@
 /test/data
 /public/system
 /tmp
+/config/s3.yml

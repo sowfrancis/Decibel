@@ -23,8 +23,7 @@ class TracksController < ApplicationController
   end
 
   def create
-    @track = Track.new(track_params)
-    @track.user = current_user
+    @track = current_user.tracks.new(track_params)
     if @track.save
       redirect_to tracks_path, notice: "thanks #{@track.user.email} for your upload!"
     else
