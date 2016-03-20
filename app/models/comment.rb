@@ -9,7 +9,7 @@ class Comment < ActiveRecord::Base
     if user == track_owner
       
     else
-       create_notif 
+      create_notif 
     end
   end
 
@@ -23,9 +23,5 @@ class Comment < ActiveRecord::Base
   
   def track_owner
     user = track.user
-  end
-
-  def comment_owner
-    user = self.user
   end
 end

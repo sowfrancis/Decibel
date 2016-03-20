@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-     @comment = Comment.new(params_comment)
+     @comment = current_user.comments.new(params_comment)
     if @comment.save
       redirect_to track_path(@comment.track_id), notice: "thanks #{@comment.user.firstname} #{@comment.user.lastname} for your posting!!"
     else
